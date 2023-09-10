@@ -1,5 +1,5 @@
 
-# Audit-framework syscall log hider
+## Intoduction
 
 
 The target is to hide audit-framework syscall logging on our activity while still logging others.
@@ -30,7 +30,7 @@ e.g.:
 ```
 
 
-### flow
+### Flow
 
 The most relevant file is `auditsc.c` (which stands for audit syscall)
 
